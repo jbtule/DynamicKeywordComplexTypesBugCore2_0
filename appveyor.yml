@@ -1,0 +1,20 @@
+image: Visual Studio 2017
+
+build: off
+test: off
+
+artifacts:
+  - path: '**\bin\*\DynamicKeyword*.dll'
+  - path: '**\TestResults*.trx'
+
+build_script:
+  - ps: dotnet test -f net462 --logger=trx;LogFileName=net462.trx
+  - ps: dotnet test -f netcoreapp1.0 --logger=trx;LogFileName=netcoreapp1_0.trx
+  - ps: dotnet test -f netcoreapp1.1 --logger=trx;LogFileName=netcoreapp1_1.trx  
+  - ps: dotnet test -f netcoreapp2.0 --logger=trx;LogFileName=netcoreapp2_0.trx
+  - ps: $wc = New-Object 'System.Net.WebClient'
+  - ps: $wc.UploadFile("https://ci.appveyor.com/api/testresults/mstest/$($env:APPVEYOR_JOB_ID)", (Resolve-Path .\DynamicKeywordComplexTypesBugCore2_0\TestResults\net462.trx))
+  - ps: $wc.UploadFile("https://ci.appveyor.com/api/testresults/mstest/$($env:APPVEYOR_JOB_ID)", (Resolve-Path .\DynamicKeywordComplexTypesBugCore2_0\TestResults\netcoreapp1_0.trx))
+  - ps: $wc.UploadFile("https://ci.appveyor.com/api/testresults/mstest/$($env:APPVEYOR_JOB_ID)", (Resolve-Path .\DynamicKeywordComplexTypesBugCore2_0\TestResults\netcoreapp1_1.trx))
+  - ps: $wc.UploadFile("https://ci.appveyor.com/api/testresults/mstest/$($env:APPVEYOR_JOB_ID)", (Resolve-Path .\DynamicKeywordComplexTypesBugCore2_0\TestResults\netcoreapp2_0.trx))
+
