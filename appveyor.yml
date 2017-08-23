@@ -1,13 +1,9 @@
 image: Visual Studio 2017
 
 
-before_install:
-  - ps: appveyor DownloadFile 'https://dotnetcli.blob.core.windows.net/dotnet/Runtime/release/2.0.0/dotnet-runtime-latest-win-x64.exe'
-  
 install:
+  - ps: (New-Object System.Net.WebClient).DownloadFile('https://dotnetcli.blob.core.windows.net/dotnet/Runtime/release/2.0.0/dotnet-runtime-latest-win-x64.exe', "$env:appveyor_build_folder\dotnet-runtime-latest-win-x64.exe")
   - ps: ./dotnet-runtime-latest-win-x64.exe /install /quiet /norestart /log install.log
-
-after_install:
   - ps: appveyor PushArtifact install.log
 
 
