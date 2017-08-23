@@ -12,7 +12,7 @@ test: off
 artifacts:
   - path: '**\bin\*\DynamicKeyword*.dll'
   - path: '**\TestResults*.trx'
-  - path: '**\install.log
+  - path: '**\install.log'
 
 
 build_script:
