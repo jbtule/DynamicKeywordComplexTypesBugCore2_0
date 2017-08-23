@@ -3,8 +3,6 @@ image: Visual Studio 2017
 install:
   - ps: curl -o $env:appveyor_build_folder\installer_2_0_1_service.exe https://dotnetcli.blob.core.windows.net/dotnet/Runtime/release/2.0.0/dotnet-runtime-latest-win-x64.exe
   - ps: .\installer_2_0_1_service.exe /S /v/qn
-  - ps: curl -o $env:appveyor_build_folder\installer_2_1_nightly.exe https://dotnetcli.blob.core.windows.net/dotnet/Runtime/master/dotnet-runtime-latest-win-x64.exe
-  - ps: .\installer_2_1_nightly.exe /S /v/qn
 
 build: off
 test: off
