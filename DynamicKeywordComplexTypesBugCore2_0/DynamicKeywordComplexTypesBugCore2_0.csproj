@@ -1,6 +1,8 @@
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <TargetFrameworks>netcoreapp2.0;netcoreapp1.1;netcoreapp1.0;net462</TargetFrameworks>
+    <RuntimeFrameworkVersion Condition="  '$(TargetFramework)' == 'netcoreapp2.0' " >2.0.1-servicing-25615-03</RuntimeFrameworkVersion>
+
     <IsPackable>false</IsPackable>
   </PropertyGroup>
   <ItemGroup>
