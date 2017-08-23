@@ -1,5 +1,8 @@
 image: Visual Studio 2017
 
+install:
+  - ps: & cli-pre\dotnet-install.ps1 -Channel "Current" -Version "2.0.1-servicing-25615-03" -InstallDir cli-pre
+
 build: off
 test: off
 
