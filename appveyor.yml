@@ -2,7 +2,7 @@ image: Visual Studio 2017
 
 install:
   - ps: curl -o installer.exe https://dotnetcli.blob.core.windows.net/dotnet/Runtime/release/2.0.0/dotnet-runtime-latest-win-x64.exe
-  - ps: msiexec /i installer.exe /quiet /qn /norestart /log install.log
+  - ps: .\installer.exe -q
 
 build: off
 test: off
