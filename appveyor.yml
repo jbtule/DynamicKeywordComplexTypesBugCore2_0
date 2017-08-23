@@ -2,7 +2,7 @@ image: Visual Studio 2017
 
 install:
   - ps: appveyor DownloadFile 'https://dotnetcli.blob.core.windows.net/dotnet/Runtime/release/2.0.0/dotnet-runtime-latest-win-x64.exe' -FileName installer_2_0_1_service.exe
-  - ps: .\installer_2_0_1_service.exe /install /quiet /norestart 
+  - ps: .\installer_2_0_1_service.exe /install /quiet /norestart /log install.log
 
 build: off
 test: off
